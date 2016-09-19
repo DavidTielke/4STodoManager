@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TodoItem>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Fälligkeit</th>
+        <th>Erledigt</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Text</td>
+            <td>@item.DueDate</td>
+            <td>@item.IsDone</td>
+        </tr>
+    }
+    </tbody>
+</table>
+</body>
+</html>
