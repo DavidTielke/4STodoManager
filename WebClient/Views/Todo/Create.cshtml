@@ -1,42 +1,31 @@
 ﻿@model TodoItem
 @{
-    Layout = null;
+    ViewBag.Title = "Neue Aufgabe";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Neues Todo-Element erzeugen</title>
-</head>
-<body>
-    @using (Html.BeginForm())
-    {
-        <fieldset>
-            <legend>Daten</legend>
-
-            <div>
-               @Html.LabelFor(m => m.Text)
-                @*<input type="text" id="text" name="text" value="@Model.Text"/>*@
-                @Html.EditorFor(m => m.Text)
-                @Html.ValidationMessageFor(m => m.Text)
-            </div>
-
-            <div>
-                @Html.LabelFor(m => m.DueDate)
-                @*<input type="date" id="dueDate" name="dueDate" value="@Model.DueDate.ToString("dd-MM-yyyy")"/>*@
-                @Html.EditorFor(m => m.DueDate)
-                @Html.ValidationMessageFor(m => m.DueDate)
-            </div>
-
-            <input type="submit" value="Hinzufügen"/>
-        </fieldset>
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Daten</legend>
 
         <div>
-            @Html.ValidationSummary()
+            @Html.LabelFor(m => m.Text)
+            @*<input type="text" id="text" name="text" value="@Model.Text"/>*@
+            @Html.EditorFor(m => m.Text)
+            @Html.ValidationMessageFor(m => m.Text)
         </div>
 
-    }
-</body>
-</html>
+        <div>
+            @Html.LabelFor(m => m.DueDate)
+            @*<input type="date" id="dueDate" name="dueDate" value="@Model.DueDate.ToString("dd-MM-yyyy")"/>*@
+            @Html.EditorFor(m => m.DueDate)
+            @Html.ValidationMessageFor(m => m.DueDate)
+        </div>
+
+        <input type="submit" value="Hinzufügen" />
+    </fieldset>
+
+    <div>
+        @Html.ValidationSummary()
+    </div>
+
+}

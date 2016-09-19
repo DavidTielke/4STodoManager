@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Meine Aufgaben - @ViewBag.Title</title>
+</head>
+<header>
+    <h1>Meine Aufgaben</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="/Todo/Index">Übersicht</a></li>
+        <li><a href="/Todo/Create">Neu</a></li>
+    </ul>
+</nav>
+<body>
+@RenderBody()
+</body>
+<footer>
+    Copyright &copy; 2016 by David Tielke
+</footer>
+</html>
