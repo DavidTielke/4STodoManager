@@ -7,12 +7,6 @@
     <DueDate>0001-01-01T00:00:00</DueDate>
   </TodoItem>
   <TodoItem>
-    <Id>2</Id>
-    <Text>Hallo Welt2</Text>
-    <IsDone>false</IsDone>
-    <DueDate>0001-01-01T00:00:00</DueDate>
-  </TodoItem>
-  <TodoItem>
     <Id>3</Id>
     <Text>Hallo Welt3</Text>
     <IsDone>true</IsDone>
@@ -23,47 +17,5 @@
     <Text>Hallo Welt4</Text>
     <IsDone>true</IsDone>
     <DueDate>0001-01-01T00:00:00</DueDate>
-  </TodoItem>
-  <TodoItem>
-    <Id>0</Id>
-    <Text>test</Text>
-    <IsDone>false</IsDone>
-    <DueDate>2016-09-21T00:00:00</DueDate>
-  </TodoItem>
-  <TodoItem>
-    <Id>0</Id>
-    <Text>Foo</Text>
-    <IsDone>false</IsDone>
-    <DueDate>2016-09-17T00:00:00</DueDate>
-  </TodoItem>
-  <TodoItem>
-    <Id>0</Id>
-    <Text>Foo</Text>
-    <IsDone>false</IsDone>
-    <DueDate>2016-09-17T00:00:00</DueDate>
-  </TodoItem>
-  <TodoItem>
-    <Id>0</Id>
-    <Text>test</Text>
-    <IsDone>false</IsDone>
-    <DueDate>2016-09-16T00:00:00</DueDate>
-  </TodoItem>
-  <TodoItem>
-    <Id>0</Id>
-    <Text>test</Text>
-    <IsDone>false</IsDone>
-    <DueDate>2016-09-17T00:00:00</DueDate>
-  </TodoItem>
-  <TodoItem>
-    <Id>0</Id>
-    <Text>test</Text>
-    <IsDone>false</IsDone>
-    <DueDate>2016-09-19T00:00:00</DueDate>
-  </TodoItem>
-  <TodoItem>
-    <Id>0</Id>
-    <Text>test</Text>
-    <IsDone>false</IsDone>
-    <DueDate>2016-01-01T00:00:00</DueDate>
   </TodoItem>
 </ArrayOfTodoItem>

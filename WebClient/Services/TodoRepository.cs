@@ -32,6 +32,7 @@ namespace WebClient.Services
         public void Insert(TodoItem item)
         {
             var items = Load().ToList();
+            item.Id = items.Max(i => i.Id) + 1;
             items.Add(item);
             Store(items);
         }
@@ -64,7 +65,7 @@ namespace WebClient.Services
 
         private void Store(IEnumerable<TodoItem> items)
         {
-            using (var strm = File.OpenWrite(PATH))
+            using (var strm = File.Create(PATH))
             {
                 var serializer = new XmlSerializer(typeof(TodoItem[]));
                 serializer.Serialize(strm, items.ToArray());

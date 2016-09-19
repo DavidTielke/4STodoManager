@@ -9,6 +9,7 @@
         <th>Name</th>
         <th>Fälligkeit</th>
         <th>Erledigt</th>
+        <th>Optionen</th>
     </tr>
     </thead>
     <tbody>
@@ -19,6 +20,10 @@
             <td>@item.Text</td>
             <td>@item.DueDate</td>
             <td>@item.IsDone</td>
+            <td>
+                <a href="@Url.Action("DeleteConfirm", new {id = item.Id})">del</a>
+                @Html.ActionLink("del", "DeleteConfirm", new {id = item.Id})
+            </td>
         </tr>
     }
     </tbody>

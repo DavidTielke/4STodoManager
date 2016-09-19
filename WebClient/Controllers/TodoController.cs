@@ -41,5 +41,17 @@ namespace WebClient.Controllers
             }
             return View(item);
         }
+
+        public ActionResult DeleteConfirm(int id)
+        {
+            var model = _manager.GetById(id);
+            return View(model);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            _repository.Delete(id);
+            return RedirectToAction("Index");
+        }
     }
 }

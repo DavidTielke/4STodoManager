@@ -1,0 +1,8 @@
+﻿@model TodoItem
+@{
+    ViewBag.Title = "Aufgabe löschen";
+}
+
+<h1>Aufgabe löschen?</h1>
+<p>Wollen Sie die Aufgabe @Model.Text wirklich löschen?</p>
+<a href="@Url.Action("Index", "Todo")">Nein</a> - <a href="@Url.Action("Delete","Todo", new {id = Model.Id})">Ja</a>
