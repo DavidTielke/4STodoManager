@@ -11,10 +11,12 @@ namespace WebClient.Controllers
     public class TodoController : Controller
     {
         private readonly ITodoManager _manager;
+        private readonly ITodoRepository _repository;
 
-        public TodoController(ITodoManager manager)
+        public TodoController(ITodoManager manager, ITodoRepository repository)
         {
             _manager = manager;
+            _repository = repository;
         }
 
         public ActionResult Index()
@@ -22,6 +24,18 @@ namespace WebClient.Controllers
             var allUndone = _manager.GetAllUndone();
 
             return View(allUndone);
+        }
+        
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(TodoItem item)
+        {
+            _repository.Insert(item);
+            return RedirectToAction("Index");
         }
     }
 }

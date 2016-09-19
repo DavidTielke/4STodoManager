@@ -1,27 +1,33 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0"?>
 <ArrayOfTodoItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <TodoItem>
     <Id>1</Id>
+    <Text>Hallo Welt1</Text>
     <IsDone>false</IsDone>
     <DueDate>0001-01-01T00:00:00</DueDate>
-    <Text>Hallo Welt1</Text>
   </TodoItem>
   <TodoItem>
     <Id>2</Id>
+    <Text>Hallo Welt2</Text>
     <IsDone>false</IsDone>
     <DueDate>0001-01-01T00:00:00</DueDate>
-    <Text>Hallo Welt2</Text>
   </TodoItem>
   <TodoItem>
     <Id>3</Id>
+    <Text>Hallo Welt3</Text>
     <IsDone>true</IsDone>
     <DueDate>0001-01-01T00:00:00</DueDate>
-    <Text>Hallo Welt3</Text>
   </TodoItem>
   <TodoItem>
     <Id>4</Id>
+    <Text>Hallo Welt4</Text>
     <IsDone>true</IsDone>
     <DueDate>0001-01-01T00:00:00</DueDate>
-    <Text>Hallo Welt4</Text>
+  </TodoItem>
+  <TodoItem>
+    <Id>0</Id>
+    <Text>test</Text>
+    <IsDone>false</IsDone>
+    <DueDate>2016-09-21T00:00:00</DueDate>
   </TodoItem>
 </ArrayOfTodoItem>
