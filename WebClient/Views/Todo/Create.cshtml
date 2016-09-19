@@ -1,4 +1,4 @@
-﻿
+﻿@model TodoItem
 @{
     Layout = null;
 }
@@ -17,17 +17,25 @@
             <legend>Daten</legend>
 
             <div>
-                <label for="text">Beschreibung: </label>
-                <input type="text" id="text" name="text" />
+               @Html.LabelFor(m => m.Text)
+                @*<input type="text" id="text" name="text" value="@Model.Text"/>*@
+                @Html.EditorFor(m => m.Text)
+                @Html.ValidationMessageFor(m => m.Text)
             </div>
 
             <div>
-                <label for="dueDate">Fällig am:</label>
-                <input type="date" id="dueDate" name="dueDate" />
+                @Html.LabelFor(m => m.DueDate)
+                @*<input type="date" id="dueDate" name="dueDate" value="@Model.DueDate.ToString("dd-MM-yyyy")"/>*@
+                @Html.EditorFor(m => m.DueDate)
+                @Html.ValidationMessageFor(m => m.DueDate)
             </div>
 
             <input type="submit" value="Hinzufügen"/>
         </fieldset>
+
+        <div>
+            @Html.ValidationSummary()
+        </div>
 
     }
 </body>

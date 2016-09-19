@@ -28,14 +28,18 @@ namespace WebClient.Controllers
         
         public ActionResult Create()
         {
-            return View();
+            return View(new TodoItem());
         }
 
         [HttpPost]
         public ActionResult Create(TodoItem item)
         {
-            _repository.Insert(item);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _repository.Insert(item);
+                return RedirectToAction("Index");
+            }
+            return View(item);
         }
     }
 }
