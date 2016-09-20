@@ -19,19 +19,27 @@ namespace WebClient.Controllers
             _repository = repository;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var allUndone = _manager.GetAllUndone();
+            var itemsPerPage = 5;
+            var allUndone = _manager.GetAllUndone().Skip((page-1) * itemsPerPage).Take(itemsPerPage);
+            ViewBag.PaginationInfo = new PaginationInfo
+            {
+                Page = page,
+                ItemsPerPage = itemsPerPage,
+                TotalItems = _manager.GetAllUndone().Count()
+            };
 
             return View(allUndone);
         }
-        
+
         public ActionResult Create()
         {
             return View(new TodoItem());
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(TodoItem item)
         {
             if (ModelState.IsValid)
@@ -49,6 +57,7 @@ namespace WebClient.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Update(TodoItem item)
         {
             if (ModelState.IsValid)

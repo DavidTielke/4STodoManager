@@ -7,7 +7,7 @@
 {
     <fieldset>
         <legend>Daten</legend>
-
+        @Html.AntiForgeryToken()
         @Html.HiddenFor(m => m.Id)
         @Html.EditorFor(m => m.Text)
         @Html.EditorFor(m => m.DueDate)

@@ -1,3 +1,4 @@
+using WebClient.Models;
 using WebClient.Services;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(WebClient.App_Start.NinjectWebCommon), "Start")]
@@ -49,6 +50,8 @@ namespace WebClient.App_Start
 
                 kernel.Bind<ITodoManager>().To<TodoManager>();
                 kernel.Bind<ITodoRepository>().To<TodoRepository>();
+                kernel.Bind<IRepository<User>>().To<UserRepository>();
+                kernel.Bind<IRepository<TodoItem>>().To<TodoRepository>();
 
                 RegisterServices(kernel);
                 return kernel;

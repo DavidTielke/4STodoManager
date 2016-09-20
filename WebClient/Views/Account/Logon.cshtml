@@ -1,0 +1,11 @@
+﻿@model LogonViewModel
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(m => m.Username)
+    @Html.EditorFor(m => m.Password)
+    <input type="submit" value="Anmelden"/>
+}

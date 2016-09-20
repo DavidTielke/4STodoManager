@@ -23,9 +23,11 @@
             <td>
                 <a class="btn btn-default btn-xs" href="@Url.Action("Update", new {id = item.Id})"><span class="glyphicon glyphicon-pencil"></span></a>
                 <a class="btn btn-default btn-xs" href="@Url.Action("DeleteConfirm", new {id = item.Id})"><span class="glyphicon glyphicon-remove"></span></a>
-                
+
             </td>
         </tr>
     }
     </tbody>
 </table>
+
+@Html.Partial("Paginator", (PaginationInfo)ViewBag.PaginationInfo)

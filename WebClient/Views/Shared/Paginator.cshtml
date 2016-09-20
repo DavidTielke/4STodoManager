@@ -1,0 +1,24 @@
+﻿@model PaginationInfo
+@{
+    int lastPage = (int)Math.Ceiling((decimal)Model.TotalItems / Model.ItemsPerPage);
+    var controller = (string)HttpContext.Current.Request.RequestContext.RouteData.Values["controller"];
+    var action = (string)HttpContext.Current.Request.RequestContext.RouteData.Values["action"];
+}
+<div class="center-block">
+    <ul class="pagination center-block">
+        <li @(Model.Page == 1 ? "class=disabled" : "")>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        @for (int i = 1; i <= lastPage; i++)
+        {
+            <li><a href="@Url.Action(action, controller, new {page = i})">@i</a></li>
+        }
+        <li @(Model.Page == lastPage ? "class=disabled" : "")>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -15,7 +15,7 @@ namespace WebClient
             
             routes.MapRoute(
                  name: "Default",
-                 url: "xyz/{controller}/{action}/{id}",
+                 url: "{controller}/{action}/{id}",
                  defaults: new { controller = "Todo", action = "Index", id = UrlParameter.Optional }
              );
         }

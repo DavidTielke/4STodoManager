@@ -16,6 +16,7 @@ namespace WebClient
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             TodoRepository.PATH = Server.MapPath("./App_Data/data.xml");
+            UserRepository._PATH = Server.MapPath("./App_Data/users.csv");
         }
     }
 }

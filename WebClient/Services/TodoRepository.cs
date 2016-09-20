@@ -9,12 +9,17 @@ using WebClient.Models;
 
 namespace WebClient.Services
 {
-    public interface ITodoRepository
+    public interface IRepository<TEntity>
     {
-        void Insert(TodoItem item);
-        void Update(TodoItem item);
+        void Insert(TEntity item);
+        void Update(TEntity item);
         void Delete(int id);
-        IEnumerable<TodoItem> Load();
+        IQueryable<TEntity> Load();
+        void Store(IEnumerable<TEntity> items);
+    }
+
+    public interface ITodoRepository : IRepository<TodoItem>
+    {
     }
 
     public class TodoRepository : ITodoRepository
@@ -53,17 +58,17 @@ namespace WebClient.Services
             Store(items);
         }
 
-        public IEnumerable<TodoItem> Load()
+        public IQueryable<TodoItem> Load()
         {
             using (var strm = File.OpenRead(PATH))
             {
                 var deserializer = new XmlSerializer(typeof(TodoItem[]));
                 var items = (TodoItem[])deserializer.Deserialize(strm);
-                return items.AsEnumerable();
+                return items.AsQueryable();
             }
         }
 
-        private void Store(IEnumerable<TodoItem> items)
+        public void Store(IEnumerable<TodoItem> items)
         {
             using (var strm = File.Create(PATH))
             {

