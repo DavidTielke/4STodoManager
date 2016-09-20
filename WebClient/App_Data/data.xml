@@ -24,4 +24,10 @@
     <IsDone>false</IsDone>
     <DueDate>2016-09-20T00:00:00</DueDate>
   </TodoItem>
+  <TodoItem>
+    <Id>6</Id>
+    <Text>sadasdass</Text>
+    <IsDone>false</IsDone>
+    <DueDate>2016-01-01T00:00:00</DueDate>
+  </TodoItem>
 </ArrayOfTodoItem>

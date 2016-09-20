@@ -8,20 +8,39 @@
         <legend>Daten</legend>
 
         <div>
-            @Html.LabelFor(m => m.Text)
-            @*<input type="text" id="text" name="text" value="@Model.Text"/>*@
-            @Html.EditorFor(m => m.Text)
-            @Html.ValidationMessageFor(m => m.Text)
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.Text)
+                    </div>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.Text, new {@class = "form-control"})
+
+                    </div>
+                    <div class="col-md-4">
+                        @Html.ValidationMessageFor(m => m.Text)
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div>
-            @Html.LabelFor(m => m.DueDate)
-            @*<input type="date" id="dueDate" name="dueDate" value="@Model.DueDate.ToString("dd-MM-yyyy")"/>*@
-            @Html.EditorFor(m => m.DueDate)
-            @Html.ValidationMessageFor(m => m.DueDate)
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-2">
+                        @Html.LabelFor(m => m.DueDate)
+                    </div>
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(m => m.DueDate, new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.ValidationMessageFor(m => m.DueDate)
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <input type="submit" value="Hinzufügen" />
+        <input class="btn btn-primary" type="submit" value="Hinzufügen" />
     </fieldset>
 
     <div>
