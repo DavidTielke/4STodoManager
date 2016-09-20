@@ -1,0 +1,22 @@
+﻿@model IQueryable<TodoItem>
+    
+<table class="table table-condensed table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Aufgabe</th>
+            <th>Optionen</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Take(5))
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => item.Text)</td>
+            <td>
+                <a class="btn btn-default btn-xs" href="@Url.Action("Update", new {id = item.Id})"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="btn btn-default btn-xs" href="@Url.Action("DeleteConfirm", new {id = item.Id})"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

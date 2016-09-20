@@ -23,13 +23,35 @@
                 <li><a href="@Url.Action("Create", "Todo")">Neu</a></li>
             </ul>
         </nav>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                @ViewBag.Title
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        @ViewBag.Title
+                    </div>
+                    <div class="panel-body">
+                        @RenderBody()
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-                @RenderBody()
-            </div>
+            <aside class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Aufgaben Heute
+                    </div>
+                    <div class="panel-body">
+                        @Html.Action("TodayTasks","Todo")
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Aufgaben Morgen
+                    </div>
+                    <div class="panel-body">
+                        @Html.Action("TomorrowTasks", "Todo")
+                    </div>
+                </div>
+            </aside>
         </div>
         <footer class="well text-center">
             Copyright &copy; 2016 by David Tielke

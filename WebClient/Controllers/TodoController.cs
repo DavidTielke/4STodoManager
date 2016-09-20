@@ -8,7 +8,7 @@ using WebClient.Services;
 
 namespace WebClient.Controllers
 {
-    public class TodoController : Controller
+    public class TodoController : BaseController
     {
         private readonly ITodoManager _manager;
         private readonly ITodoRepository _repository;
@@ -69,6 +69,20 @@ namespace WebClient.Controllers
         {
             _repository.Delete(id);
             return RedirectToAction("Index");
+        }
+
+        [ChildActionOnly]
+        public ActionResult TodayTasks()
+        {
+            var model = _manager.GetTodayTasks();
+            return PartialView("TaskShortTable", model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult TomorrowTasks()
+        {
+            var model = _manager.GetTomorrowTasks();
+            return PartialView("TaskShortTable", model);
         }
     }
 }
