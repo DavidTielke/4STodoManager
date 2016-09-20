@@ -1,0 +1,12 @@
+﻿@model System.Boolean
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-2">
+            @Html.LabelFor(m => m)
+        </div>
+        <div class="col-md-6">
+            <input type="checkbox" name="@Html.NameFor(m => m)" id="@Html.IdFor(m => m)" @(Model ? "checked" : "")/>
+        </div>
+    </div>
+</div>
+

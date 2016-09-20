@@ -9,24 +9,9 @@
         <legend>Daten</legend>
 
         @Html.HiddenFor(m => m.Id)
-
-        <div>
-            @Html.LabelFor(m => m.Text)
-            @Html.EditorFor(m => m.Text)
-            @Html.ValidationMessageFor(m => m.Text)
-        </div>
-
-        <div>
-            @Html.LabelFor(m => m.DueDate)
-            @Html.EditorFor(m => m.DueDate)
-            @Html.ValidationMessageFor(m => m.DueDate)
-        </div>
-
-        <div>
-            @Html.LabelFor(m => m.IsDone)
-            @Html.EditorFor(m => m.IsDone)
-            @Html.ValidationMessageFor(m => m.IsDone)
-        </div>
+        @Html.EditorFor(m => m.Text)
+        @Html.EditorFor(m => m.DueDate)
+        @Html.EditorFor(m => m.IsDone)
 
         <input type="submit" value="Editieren" />
     </fieldset>
