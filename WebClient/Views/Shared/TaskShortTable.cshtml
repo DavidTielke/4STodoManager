@@ -1,10 +1,17 @@
 ﻿@model IQueryable<TodoItem>
-    
+
+@{
+    var controller = (string)HttpContext.Current.Request.RequestContext.RouteData.Values["controller"];
+}
+
 <table class="table table-condensed table-striped table-hover">
     <thead>
         <tr>
             <th>Aufgabe</th>
-            <th>Optionen</th>
+            @if (User.IsInRole("Admin"))
+            {
+                <th>Optionen</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -12,10 +19,13 @@
     {
         <tr>
             <td>@Html.DisplayFor(m => item.Text)</td>
-            <td>
-                <a class="btn btn-default btn-xs" href="@Url.Action("Update", new {id = item.Id})"><span class="glyphicon glyphicon-pencil"></span></a>
-                <a class="btn btn-default btn-xs" href="@Url.Action("DeleteConfirm", new {id = item.Id})"><span class="glyphicon glyphicon-remove"></span></a>
-            </td>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    <a class="btn btn-default btn-xs" href="@Url.Action("Update", controller, new {id = item.Id})"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-default btn-xs" href="@Url.Action("DeleteConfirm", controller, new {id = item.Id})"><span class="glyphicon glyphicon-remove"></span></a>
+                </td>
+            }
         </tr>
     }
     </tbody>

@@ -149,6 +149,7 @@
     <Compile Include="Services\UserManager.cs" />
     <Compile Include="Services\UserRepository.cs" />
     <Compile Include="UserManagement\MyMembershipProvider.cs" />
+    <Compile Include="UserManagement\MyRoleProvider.cs" />
     <Compile Include="ViewModel\LogonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,10 @@
         <th>Name</th>
         <th>Fälligkeit</th>
         <th>Erledigt</th>
-        <th>Optionen</th>
+        @if (User.IsInRole("Admin"))
+        {
+            <th>Optionen</th>
+        }
     </tr>
     </thead>
     <tbody>
@@ -20,11 +23,14 @@
             <td>@item.Text</td>
             <td>@Html.DisplayFor(m => item.DueDate)</td>
             <td>@item.IsDone</td>
-            <td>
-                <a class="btn btn-default btn-xs" href="@Url.Action("Update", new {id = item.Id})"><span class="glyphicon glyphicon-pencil"></span></a>
-                <a class="btn btn-default btn-xs" href="@Url.Action("DeleteConfirm", new {id = item.Id})"><span class="glyphicon glyphicon-remove"></span></a>
+            @if (User.IsInRole("Admin"))
+            {
+                <td>
+                    <a class="btn btn-default btn-xs" href="@Url.Action("Update", new {id = item.Id})"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a class="btn btn-default btn-xs" href="@Url.Action("DeleteConfirm", new {id = item.Id})"><span class="glyphicon glyphicon-remove"></span></a>
 
-            </td>
+                </td>
+            }
         </tr>
     }
     </tbody>

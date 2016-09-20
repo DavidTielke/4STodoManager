@@ -19,6 +19,7 @@ namespace WebClient.Controllers
             _repository = repository;
         }
 
+        [Authorize]
         public ActionResult Index(int page = 1)
         {
             var itemsPerPage = 5;
@@ -33,6 +34,7 @@ namespace WebClient.Controllers
             return View(allUndone);
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult Create()
         {
             return View(new TodoItem());
@@ -40,6 +42,7 @@ namespace WebClient.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(TodoItem item)
         {
             if (ModelState.IsValid)
@@ -50,12 +53,14 @@ namespace WebClient.Controllers
             return View(item);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Update(int id)
         {
             var model = _manager.GetById(id);
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Update(TodoItem item)

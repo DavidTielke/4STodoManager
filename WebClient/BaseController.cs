@@ -7,7 +7,7 @@ using WebClient.Services;
 
 namespace WebClient
 {
-    [Authorize]
+    //[Authorize]
     public class BaseController : Controller
     {
 
