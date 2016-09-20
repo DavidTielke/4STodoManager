@@ -2,7 +2,7 @@
     @{
         ViewBag.Title = "Übersicht";
     }
-<table>
+<table class="table table-bordered table-condensed table-hover table-striped">
     <thead>
     <tr>
         <th>Id</th>
@@ -21,8 +21,9 @@
             <td>@item.DueDate</td>
             <td>@item.IsDone</td>
             <td>
-                <a href="@Url.Action("DeleteConfirm", new {id = item.Id})">del</a>
-                @Html.ActionLink("del", "DeleteConfirm", new {id = item.Id})
+                <a class="btn btn-default btn-xs" href="@Url.Action("Update", new {id = item.Id})"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="btn btn-default btn-xs" href="@Url.Action("DeleteConfirm", new {id = item.Id})"><span class="glyphicon glyphicon-remove"></span></a>
+                
             </td>
         </tr>
     }

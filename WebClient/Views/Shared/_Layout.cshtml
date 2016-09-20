@@ -8,20 +8,32 @@
 <head>
     <meta name="viewport" content="width=device-width"/>
     <title>Meine Aufgaben - @ViewBag.Title</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
 </head>
-<header>
-    <h1>Meine Aufgaben</h1>
-</header>
-<nav>
-    <ul>
-        <li><a href="@Url.Action("Index", "Todo")">Übersicht</a></li>
-        <li><a href="@Url.Action("Create", "Todo")">Neu</a></li>
-    </ul>
-</nav>
-<body>
-@RenderBody()
-</body>
-<footer>
-    Copyright &copy; 2016 by David Tielke
-</footer>
+<div class="container">
+    <header class="jumbotron">
+        <h1>Meine Aufgaben</h1>
+    </header>
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li><a href="@Url.Action("Index", "Todo")">Übersicht</a></li>
+            <li><a href="@Url.Action("Create", "Todo")">Neu</a></li>
+        </ul>
+    </nav>
+    <body>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            @ViewBag.Title
+        </div>
+        <div class="panel-body">
+            @RenderBody()
+        </div>
+    </div>
+    </body>
+    <footer class="well text-center">
+        Copyright &copy; 2016 by David Tielke
+    </footer>
+</div>
 </html>

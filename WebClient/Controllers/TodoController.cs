@@ -42,6 +42,23 @@ namespace WebClient.Controllers
             return View(item);
         }
 
+        public ActionResult Update(int id)
+        {
+            var model = _manager.GetById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Update(TodoItem item)
+        {
+            if (ModelState.IsValid)
+            {
+                _repository.Update(item);
+                return RedirectToAction("Index");
+            }
+            return View(item);
+        }
+
         public ActionResult DeleteConfirm(int id)
         {
             var model = _manager.GetById(id);
