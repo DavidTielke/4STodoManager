@@ -13,7 +13,7 @@
         </li>
         @for (int i = 1; i <= lastPage; i++)
         {
-            <li><a href="@Url.Action(action, controller, new {page = i})">@i</a></li>
+            <li><a href="#" class="paginationLink" data-page="@i">@i</a></li>
         }
         <li @(Model.Page == lastPage ? "class=disabled" : "")>
             <a href="#" aria-label="Next">

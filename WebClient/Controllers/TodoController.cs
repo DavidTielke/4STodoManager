@@ -33,6 +33,21 @@ namespace WebClient.Controllers
 
             return View(allUndone);
         }
+        
+        public ActionResult List(int page = 1)
+        {
+            var itemsPerPage = 5;
+            var allUndone = _manager.GetAllUndone().Skip((page - 1) * itemsPerPage).Take(itemsPerPage);
+            ViewBag.PaginationInfo = new PaginationInfo
+            {
+                Page = page,
+                ItemsPerPage = itemsPerPage,
+                TotalItems = _manager.GetAllUndone().Count()
+            };
+
+            var items = allUndone.Select(t =>  new {t.Id, DueDate = t.DueDate.ToString("dd.MM.yyyy"), t.Text, t.IsDone});
+            return Json(items, JsonRequestBehavior.AllowGet);
+        }
 
         [Authorize(Roles="Admin")]
         public ActionResult Create()
